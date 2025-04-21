@@ -1,47 +1,3 @@
-// import { useRouter } from 'next/router'
-// import { useEffect, useState } from 'react'
-// import dynamic from 'next/dynamic'
-
-// const Map = dynamic(() => import('../../components/Map'), { ssr: false })
-
-// export default function CityPage() {
-//   const { cityName } = useRouter().query
-//   const [projects, setProjects] = useState([])
-//   const [loading, setLoading] = useState(true)
-
-//   useEffect(() => {
-//     if (!cityName) return
-//     const fetchProjects = async () => {
-//       const res = await fetch(`/api/scrape?city=${cityName}`)
-//       const data = await res.json()
-//       console.log("data show is here",data)
-//       setProjects(data.projects)
-//       setLoading(false)
-//     }
-//     fetchProjects()
-//   }, [cityName])
-
-//   return (
-//     <div className="p-4">
-//       <h1 className="text-2xl font-bold mb-4">Real Estate Projects in {cityName}</h1>
-//       {loading ? <p>Loading...</p> : (
-//         <>
-//           <ul className="space-y-2">
-//             {projects.map((p, i) => (
-//               <li key={i} className="border p-2 rounded">
-//                 <p><strong>{p.name}</strong></p>
-//                 <p>{p.location}</p>
-//                 <p>{p.price}</p>
-//                 <p>Builder: {p.builder}</p>
-//               </li>
-//             ))}
-//           </ul>
-//           <Map projects={projects} />
-//         </>
-//       )}
-//     </div>
-//   )
-// }
 
 
 import { useRouter } from 'next/router'
@@ -62,6 +18,7 @@ export default function CityPage() {
       const res = await fetch(`/api/scrape?city=${cityName}`)
       const data = await res.json()
       setProjects(data.projects)
+      console.log("setproject data is here",data.projects)
       setLoading(false)
     }
     fetchProjects()
